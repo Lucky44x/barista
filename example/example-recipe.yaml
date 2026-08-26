@@ -1,0 +1,7 @@
+meta:
+  name: "Example Recipe for barista"
+  version: "0.1"
+
+ingredients:
+  - type: render
+    source: "./"

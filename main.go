@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"os"
 
+	"github.com/lucky44x/barista/commands"
 	"github.com/urfave/cli/v3"
 )
 
@@ -16,15 +16,29 @@ func main() {
 		Suggest:               true,
 		Commands: []*cli.Command{
 			{
+				Name:                  "validate",
+				Usage:                 "barista validate",
+				Description:           "Validates a given configuration",
+				EnableShellCompletion: true,
+				Suggest:               true,
+				Arguments: []cli.Argument{
+					&cli.StringArg{
+						Name:      "Recipe-file",
+						UsageText: "<recipe-file>",
+					},
+				},
+				Action: commands.Validate,
+			},
+			{
 				Name:                  "brew",
-				Usage:                 "barista brew <recipe-yaml> [options]",
+				Usage:                 "barista brew",
 				Description:           "Runs the defined recipe",
 				EnableShellCompletion: true,
 				Suggest:               true,
 				Arguments: []cli.Argument{
 					&cli.StringArg{
 						Name:      "Recipe-file",
-						UsageText: "The Recipe `FILE` that should be executed",
+						UsageText: "<recipe-file>",
 					},
 				},
 				Flags: []cli.Flag{
@@ -44,10 +58,7 @@ func main() {
 						Usage:   "A yaml that defines inputs that should be supplied to the recipe",
 					},
 				},
-				Action: func(context.Context, *cli.Command) error {
-					fmt.Println("Hello World")
-					return nil
-				},
+				Action: commands.Brew,
 			},
 		},
 	}

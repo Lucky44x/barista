@@ -1,0 +1,4 @@
+base: {{ colors[base] }}
+
+val: {{ env.SHELL }}
+accent: {{ colors[blue] }}
