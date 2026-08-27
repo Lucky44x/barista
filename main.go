@@ -16,8 +16,8 @@ func main() {
 		Suggest:               true,
 		Commands: []*cli.Command{
 			{
-				Name:                  "validate",
-				Usage:                 "barista validate",
+				Name:                  "taste",
+				Usage:                 "barista taste",
 				Description:           "Validates a given configuration",
 				EnableShellCompletion: true,
 				Suggest:               true,
@@ -27,7 +27,7 @@ func main() {
 						UsageText: "<recipe-file>",
 					},
 				},
-				Action: commands.Validate,
+				Action: commands.Taste,
 			},
 			{
 				Name:                  "brew",

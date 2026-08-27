@@ -2,6 +2,18 @@ meta:
   name: "Example Recipe for barista"
   version: "0.1"
 
-ingredients:
-  - type: render
-    source: "./"
+steps:
+  - name: "Niri"
+  - ingredients:
+    - type: template
+      source: "./template.yaml"
+      target: "./rendered.yaml"
+    - type: run
+      command: "mkdir"
+      args:
+        - "./testdir"
+    - type: run
+      command: "rm"
+      args:
+        - "-rf"
+        - "./testdir"

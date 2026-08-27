@@ -6,6 +6,6 @@ import (
 	"github.com/urfave/cli/v3"
 )
 
-func Validate(ctx context.Context, cmd *cli.Command) error {
+func Taste(ctx context.Context, cmd *cli.Command) error {
 	return nil
 }

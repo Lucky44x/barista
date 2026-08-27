@@ -3,11 +3,9 @@ package engine
 import (
 	"os"
 	"strings"
-
-	"github.com/flosch/pongo2/v7"
 )
 
-func CollectEnvVars() pongo2.Context {
+func CollectEnvVars() map[string]string {
 	allEnvVars := os.Environ()
 
 	envMap := make(map[string]string)
@@ -18,7 +16,9 @@ func CollectEnvVars() pongo2.Context {
 		}
 	}
 
-	return pongo2.Context{
-		"env": envMap,
-	}
+	return envMap
+}
+
+func CollectInputs() map[string]any {
+	return nil
 }
